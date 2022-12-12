@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -39,7 +37,6 @@ public class AgentCountChecker : MonoBehaviour
     private IEnumerator CreateAgentWithDelayInRange(float minDelay, float maxDelay)
     {
         float randomDelay = Random.Range(minDelay, maxDelay);
-        Debug.Log(randomDelay);
         yield return new WaitForSeconds(randomDelay);
         _generator.CreateAgent();
         yield break;
