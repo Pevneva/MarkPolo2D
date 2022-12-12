@@ -1,34 +1,33 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class AgentMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    
+
     private Vector2 _currentDirection;
 
     private void Start()
     {
-        _currentDirection = Vector2.right;
+        _currentDirection = GetRandomDirection(BorderType.NULL);
     }
 
     private void Update()
     {
-        transform.Translate(_speed * Time.deltaTime * _currentDirection );
+        transform.Translate(_speed * Time.deltaTime * _currentDirection);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D");
         if (collision.gameObject.TryGetComponent(out Border border))
         {
-            SetDirection(border.Type);
+            _currentDirection = GetRandomDirection(border.Type);
         }
     }
 
-    private void SetDirection(BorderType type)
+    private Vector2 GetRandomDirection(BorderType type)
     {
-        Debug.Log("SetDirection : " + type);
         float randomX;
         float randomY;
 
@@ -51,13 +50,11 @@ public class AgentMover : MonoBehaviour
                 randomY = Random.Range(-0.999f, 0.001f);
                 break;
             default:
-                randomX = 0;
-                randomY = 0;
+                randomX = Random.Range(-0.999f, 0.999f);
+                randomY = Random.Range(-0.999f, 0.999f);
                 break;
         }
-        Debug.Log(randomX);
-        Debug.Log(randomY);
-        _currentDirection = new Vector2(randomX, randomY);
-        Debug.Log(_currentDirection);
+
+        return new Vector2(randomX, randomY);
     }
 }

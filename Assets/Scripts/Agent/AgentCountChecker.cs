@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,20 +13,16 @@ public class AgentCountChecker : MonoBehaviour
     private void Start()
     {
         _generator = GetComponent<AgentGenerator>();
-        _generator.AgentCreated += OnAgentCreated;
+        _generator.AgentCreated += TryCreateAgent;
+        _generator.AgentDied += TryCreateAgent;
         TryCreateAgent();
     }
-
-    private void OnAgentCreated()
-    {
-        TryCreateAgent();
-    }
-
-    private void TryCreateAgent()
+    
+    public void TryCreateAgent()
     {
         if (IsAgentCountNotMax())
         {
-            StartCoroutine(CreateAgentWithDelayInRange(_generator.MinDelay, _generator.MaxDelay));
+            StartCoroutine(TryCreateAgentWithDelay(_generator.MinDelay, _generator.MaxDelay));
         }
     }
 
@@ -34,11 +31,12 @@ public class AgentCountChecker : MonoBehaviour
         return _generator.CurrentAmountAgents < _maxCountOfAgents;
     }
 
-    private IEnumerator CreateAgentWithDelayInRange(float minDelay, float maxDelay)
+    private IEnumerator TryCreateAgentWithDelay(float minDelay, float maxDelay)
     {
         float randomDelay = Random.Range(minDelay, maxDelay);
         yield return new WaitForSeconds(randomDelay);
-        _generator.CreateAgent();
+        if (IsAgentCountNotMax())
+            _generator.CreateAgent();
         yield break;
     }
 }
