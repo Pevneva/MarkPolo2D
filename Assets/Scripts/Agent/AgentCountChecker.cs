@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,7 +17,7 @@ public class AgentCountChecker : MonoBehaviour
         TryCreateAgent();
     }
     
-    public void TryCreateAgent()
+    private void TryCreateAgent()
     {
         if (IsAgentCountNotMax())
         {
@@ -26,7 +25,7 @@ public class AgentCountChecker : MonoBehaviour
         }
     }
 
-    public bool IsAgentCountNotMax()
+    private bool IsAgentCountNotMax()
     {
         return _generator.CurrentAmountAgents < _maxCountOfAgents;
     }
