@@ -24,7 +24,7 @@ public class AgentMover : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(_speed * Time.deltaTime * _currentDirection);
+        transform.Translate(_speed * Time.deltaTime * _currentDirection.normalized);
     }
     
     private void OnBorderCollision(BorderType type)
