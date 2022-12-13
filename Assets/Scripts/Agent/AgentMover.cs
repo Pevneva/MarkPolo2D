@@ -1,29 +1,35 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(CollisionDetector))]
 public class AgentMover : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float _speed;
 
     private Vector2 _currentDirection;
+    private CollisionDetector _collisionDetector;
 
     private void Start()
     {
+        _collisionDetector = GetComponent<CollisionDetector>();
         _currentDirection = GetRandomDirection(BorderType.NULL);
+        _collisionDetector.BorderCollision += OnBorderCollision;
+
     }
+    private void OnDestroy()
+    {
+        _collisionDetector.BorderCollision -= OnBorderCollision;
+    }    
 
     private void Update()
     {
         transform.Translate(_speed * Time.deltaTime * _currentDirection);
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    
+    private void OnBorderCollision(BorderType type)
     {
-        if (collision.gameObject.TryGetComponent(out Border border))
-        {
-            _currentDirection = GetRandomDirection(border.Type);
-        }
+        _currentDirection = GetRandomDirection(type);
     }
 
     private Vector2 GetRandomDirection(BorderType type)

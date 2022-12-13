@@ -1045,8 +1045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3821f808613aa489670a0c39c58198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minDelay: 0.1
-  _maxDelay: 0.3
+  _minDelay: 2
+  _maxDelay: 8
   _agentTemplate: {fileID: 4268642670242346825, guid: 1bbec5ee8ad1b8541a034e614acf1d29, type: 3}
   AgentDataViewTemplate: {fileID: 8175608118030923656, guid: 4ea84bad6c68c564d81656bbc7567fb6, type: 3}
   _startPosition: {fileID: 1349915971}
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aba65196c521aa4bb15075d7de075b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxCountOfAgents: 100
+  _maxCountOfAgents: 30
 --- !u!1 &1293966242
 GameObject:
   m_ObjectHideFlags: 0

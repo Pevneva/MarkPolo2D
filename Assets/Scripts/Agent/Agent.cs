@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(AgentView))]
+[RequireComponent(typeof(AgentView), typeof(CollisionDetector))]
 public class Agent : MonoBehaviour
 {
     [Header("Settings")]
@@ -14,6 +14,7 @@ public class Agent : MonoBehaviour
     private static int _id;
     private AgentView _agentView;
     private AgentDataView _dataView;
+    private CollisionDetector _collisionDetector;
 
     public event Action Died;
 
@@ -22,6 +23,14 @@ public class Agent : MonoBehaviour
         Name = _prefixName + ++_id;
         _agentView = GetComponent<AgentView>();
         _agentView.SelectionChanged += OnSelectionAgentViewChanged;
+        _collisionDetector = GetComponent<CollisionDetector>();
+        _collisionDetector.AgentCollision += OnAgentCollision;
+    }
+
+    private void OnDestroy()
+    {
+        _agentView.SelectionChanged -= OnSelectionAgentViewChanged;
+        _collisionDetector.AgentCollision -= OnAgentCollision;
     }
 
     private void Update()
@@ -33,12 +42,6 @@ public class Agent : MonoBehaviour
             return;
         
         _dataView.Render(this);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.TryGetComponent(out Agent agent))
-            OnAgentCollision();
     }
 
     public void Init(AgentDataView dataView)
