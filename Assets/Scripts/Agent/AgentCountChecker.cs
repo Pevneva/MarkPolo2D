@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(AgentGenerator))]
 public class AgentCountChecker : MonoBehaviour
 {
+    [Header("Setup")]
     [SerializeField] private int _maxCountOfAgents;
 
     private AgentGenerator _generator;

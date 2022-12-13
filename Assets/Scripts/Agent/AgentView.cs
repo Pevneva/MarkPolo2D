@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class AgentView : MonoBehaviour
 {
+    [Header("Setup")]
     [SerializeField] private GameObject _checkMark;
     
     public bool IsAgentSelected { get; private set; }

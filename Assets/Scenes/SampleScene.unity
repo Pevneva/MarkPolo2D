@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 90871040}
   - component: {fileID: 90871041}
   m_Layer: 5
-  m_Name: DisplayingNameMenu
+  m_Name: DisplayingNumbersAndName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,6 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allNumbersText: {fileID: 666241388}
   _showButton: {fileID: 472904974}
+  _nameIfDevidedByThree: Marko
+  _nameIfDevidedByFive: Polo
 --- !u!1 &155127897
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,8 +312,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4292996330
+  m_fontColor: {r: 0.9194964, g: 0.9245283, b: 0.883, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -334,7 +336,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -622,7 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.18039216, g: 0.8117647, b: 0.77254903, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1043,13 +1045,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3821f808613aa489670a0c39c58198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minDelay: 0.1
+  _maxDelay: 0.3
   _agentTemplate: {fileID: 4268642670242346825, guid: 1bbec5ee8ad1b8541a034e614acf1d29, type: 3}
   AgentDataViewTemplate: {fileID: 8175608118030923656, guid: 4ea84bad6c68c564d81656bbc7567fb6, type: 3}
   _startPosition: {fileID: 1349915971}
   _parentAgent: {fileID: 195565572}
   _parentAgentDataView: {fileID: 155127898}
-  _minDelay: 0.5
-  _maxDelay: 1.5
 --- !u!4 &823478226
 Transform:
   m_ObjectHideFlags: 0
@@ -1079,7 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aba65196c521aa4bb15075d7de075b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxCountOfAgents: 5
+  _maxCountOfAgents: 100
 --- !u!1 &1293966242
 GameObject:
   m_ObjectHideFlags: 0

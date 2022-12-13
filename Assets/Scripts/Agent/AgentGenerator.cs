@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class AgentGenerator : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private float _minDelay;
+    [SerializeField] private float _maxDelay;
+    [Header("Setup")]
     [SerializeField] private Agent _agentTemplate;
     [SerializeField] private AgentDataView AgentDataViewTemplate;
     [SerializeField] private Transform _startPosition;
     [SerializeField] private Transform _parentAgent;
     [SerializeField] private Transform _parentAgentDataView;
-    [SerializeField] private float _minDelay;
-    [SerializeField] private float _maxDelay;
 
     public int CurrentAmountAgents { get; private set; }
     public float MinDelay => _minDelay;

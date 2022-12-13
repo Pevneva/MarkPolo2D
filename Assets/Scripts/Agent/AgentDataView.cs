@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class AgentDataView : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private float _offsetY;
+    [Header("Setup")]
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _health;
 

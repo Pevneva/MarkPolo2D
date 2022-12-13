@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(AgentView))]
 public class Agent : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private int _health;
     [SerializeField] private string _prefixName;
     

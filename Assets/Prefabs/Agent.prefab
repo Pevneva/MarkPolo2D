@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4222ba94607a7bd49843d32de26b3ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 3
+  _health: 1000
   _prefixName: 'Name '
 --- !u!114 &3478716328112920936
 MonoBehaviour:

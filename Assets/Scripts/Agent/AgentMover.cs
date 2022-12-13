@@ -1,9 +1,9 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class AgentMover : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private float _speed;
 
     private Vector2 _currentDirection;
@@ -18,7 +18,7 @@ public class AgentMover : MonoBehaviour
         transform.Translate(_speed * Time.deltaTime * _currentDirection);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Border border))
         {
