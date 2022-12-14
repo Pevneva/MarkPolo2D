@@ -12,6 +12,11 @@ public class AgentView : MonoBehaviour
 
     private void OnMouseDown()
     {
+        ChangeSelection();
+    }
+
+    public void ChangeSelection()
+    {
         IsAgentSelected = IsAgentSelected == false;
         _checkMark.SetActive(IsAgentSelected);
         SelectionChanged?.Invoke();

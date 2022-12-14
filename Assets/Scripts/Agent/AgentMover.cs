@@ -17,10 +17,6 @@ public class AgentMover : MonoBehaviour
         _collisionDetector.BorderCollision += OnBorderCollision;
 
     }
-    private void OnDestroy()
-    {
-        _collisionDetector.BorderCollision -= OnBorderCollision;
-    }    
 
     private void Update()
     {

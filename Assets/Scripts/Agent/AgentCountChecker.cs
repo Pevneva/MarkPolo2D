@@ -8,6 +8,8 @@ public class AgentCountChecker : MonoBehaviour
     [Header("Setup")]
     [SerializeField] private int _maxCountOfAgents;
 
+    public int MaxCountOfAgents => _maxCountOfAgents;
+    
     private AgentGenerator _generator;
     private Coroutine _agentCreating;
 

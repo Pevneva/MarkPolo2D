@@ -15,16 +15,28 @@ public class Agent : MonoBehaviour
     private AgentView _agentView;
     private AgentDataView _dataView;
     private CollisionDetector _collisionDetector;
+    private int _startHealth;
 
     public event Action Died;
 
     private void OnEnable()
     {
-        Name = _prefixName + ++_id;
+        SetStartData();
+    }
+
+    private void Awake()
+    {
+        _startHealth = _health;
         _agentView = GetComponent<AgentView>();
         _agentView.SelectionChanged += OnSelectionAgentViewChanged;
         _collisionDetector = GetComponent<CollisionDetector>();
         _collisionDetector.AgentCollision += OnAgentCollision;
+    }
+
+    private void SetStartData()
+    {
+        Name = _prefixName + ++_id;
+        _health = _startHealth;
     }
 
     private void OnDestroy()
@@ -65,9 +77,16 @@ public class Agent : MonoBehaviour
 
         if (_health <= 0)
         {
-            Destroy(_dataView.gameObject);
-            Destroy(gameObject);
+            Die();
             Died?.Invoke();
         }
+    }
+
+    private void Die()
+    {
+        if (_agentView.IsAgentSelected)
+            _agentView.ChangeSelection();
+        _dataView.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

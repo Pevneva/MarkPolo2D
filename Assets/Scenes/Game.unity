@@ -1026,6 +1026,7 @@ GameObject:
   - component: {fileID: 823478226}
   - component: {fileID: 823478225}
   - component: {fileID: 823478227}
+  - component: {fileID: 823478228}
   m_Layer: 0
   m_Name: AgentGenerator
   m_TagString: Untagged
@@ -1045,8 +1046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3821f808613aa489670a0c39c58198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minDelay: 2
-  _maxDelay: 8
+  _minDelay: 0
+  _maxDelay: 1
   _agentTemplate: {fileID: 4268642670242346825, guid: 1bbec5ee8ad1b8541a034e614acf1d29, type: 3}
   _agentDataViewTemplate: {fileID: 8175608118030923656, guid: 4ea84bad6c68c564d81656bbc7567fb6, type: 3}
   _startPosition: {fileID: 1349915971}
@@ -1082,6 +1083,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxCountOfAgents: 30
+--- !u!114 &823478228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823478224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3202958079797ef459c3398031ab4cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1293966242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349915970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.01, y: -2.81, z: 0}
+  m_LocalPosition: {x: -3.01, y: -2.81, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

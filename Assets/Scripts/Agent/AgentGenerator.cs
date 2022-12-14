@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(ObjectPool), typeof(AgentCountChecker))]
 public class AgentGenerator : MonoBehaviour
 {
     [Header("Settings")]
@@ -17,15 +18,25 @@ public class AgentGenerator : MonoBehaviour
     public float MinDelay => _minDelay;
     public float MaxDelay => _maxDelay;
 
+    private ObjectPool _objectPool;
+    private AgentCountChecker _agentCountChecker;
+
     public event Action AgentCreated;
     public event Action AgentDied;
 
+    private void Start()
+    {
+        _agentCountChecker = GetComponent<AgentCountChecker>();
+        _objectPool = GetComponent<ObjectPool>();
+        _objectPool.InitializeAgent(_agentTemplate, _agentDataViewTemplate, _parentAgent, _parentAgentDataView, _agentCountChecker.MaxCountOfAgents);
+    }
+
     public void CreateAgent()
     {
-        Agent agent = Instantiate(_agentTemplate, new Vector3(_startPosition.position.x, _startPosition.position.y, -1), Quaternion.identity, _parentAgent);
-        AgentDataView agentDataView = Instantiate(_agentDataViewTemplate, agent.transform.position, Quaternion.identity, _parentAgentDataView);
+        _objectPool.TryGetAgentAndAgentDataView(out Agent agent, out AgentDataView agentDataView);
+        agent.transform.localPosition = _startPosition.localPosition;
+        agent.gameObject.SetActive(true);
         agentDataView.gameObject.SetActive(false);
-        agent.Init(agentDataView);
         CurrentAmountAgents++;
         agent.Died += OnAgentDied;
         AgentCreated?.Invoke();
