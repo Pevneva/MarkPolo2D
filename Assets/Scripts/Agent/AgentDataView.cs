@@ -10,7 +10,7 @@ public class AgentDataView : MonoBehaviour
     [SerializeField] private TMP_Text _health;
 
     public void Render(Agent agent)
-    {
+    { 
         _name.text = agent.Name;
         _health.text = agent.Health.ToString();
         SetPosition(agent, _offsetY);

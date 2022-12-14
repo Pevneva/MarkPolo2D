@@ -11,7 +11,7 @@ public class AgentCountChecker : MonoBehaviour
     private AgentGenerator _generator;
     private Coroutine _agentCreating;
 
-    private void Start()
+    public void StartAgentsGeneration()
     {
         _generator = GetComponent<AgentGenerator>();
         _generator.AgentCreated += TryCreateAgent;

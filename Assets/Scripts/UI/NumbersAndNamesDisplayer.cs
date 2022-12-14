@@ -13,10 +13,16 @@ public class NumbersAndNamesDisplayer : MonoBehaviour
     [SerializeField] private string _nameIfDevidedByThree = "Marko";
     [SerializeField] private string _nameIfDevidedByFive = "Polo";
     
-    private void Start()
+
+    public void InitNumbersNames()
     {
         ClearField();
         _showButton.onClick.AddListener(OnShowButton);
+    }
+
+    private void OnDestroy()
+    {
+        _showButton.onClick.RemoveListener(OnShowButton);
     }
 
     private void ClearField()

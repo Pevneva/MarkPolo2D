@@ -8,7 +8,7 @@ public class AgentGenerator : MonoBehaviour
     [SerializeField] private float _maxDelay;
     [Header("Setup")]
     [SerializeField] private Agent _agentTemplate;
-    [SerializeField] private AgentDataView AgentDataViewTemplate;
+    [SerializeField] private AgentDataView _agentDataViewTemplate;
     [SerializeField] private Transform _startPosition;
     [SerializeField] private Transform _parentAgent;
     [SerializeField] private Transform _parentAgentDataView;
@@ -23,7 +23,7 @@ public class AgentGenerator : MonoBehaviour
     public void CreateAgent()
     {
         Agent agent = Instantiate(_agentTemplate, new Vector3(_startPosition.position.x, _startPosition.position.y, -1), Quaternion.identity, _parentAgent);
-        AgentDataView agentDataView = Instantiate(AgentDataViewTemplate, agent.transform.position, Quaternion.identity, _parentAgentDataView);
+        AgentDataView agentDataView = Instantiate(_agentDataViewTemplate, agent.transform.position, Quaternion.identity, _parentAgentDataView);
         agentDataView.gameObject.SetActive(false);
         agent.Init(agentDataView);
         CurrentAmountAgents++;

@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-    [SerializeField] private AgentGenerator _generator;
+    [SerializeField] private AgentCountChecker _agentCountChecker;
+    [SerializeField] private NumbersAndNamesDisplayer _numbersAndNamesDisplayer;
     
     private void Awake()
     {
-        // _generator.StartGeneration();
+        _agentCountChecker.StartAgentsGeneration();
+        _numbersAndNamesDisplayer.InitNumbersNames();
     }
 }

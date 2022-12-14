@@ -1048,7 +1048,7 @@ MonoBehaviour:
   _minDelay: 2
   _maxDelay: 8
   _agentTemplate: {fileID: 4268642670242346825, guid: 1bbec5ee8ad1b8541a034e614acf1d29, type: 3}
-  AgentDataViewTemplate: {fileID: 8175608118030923656, guid: 4ea84bad6c68c564d81656bbc7567fb6, type: 3}
+  _agentDataViewTemplate: {fileID: 8175608118030923656, guid: 4ea84bad6c68c564d81656bbc7567fb6, type: 3}
   _startPosition: {fileID: 1349915971}
   _parentAgent: {fileID: 195565572}
   _parentAgentDataView: {fileID: 155127898}
@@ -1691,7 +1691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b01a2ee349ec6b409fe4036e890049b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _generator: {fileID: 0}
+  _agentCountChecker: {fileID: 823478227}
+  _numbersAndNamesDisplayer: {fileID: 90871041}
 --- !u!4 &1916655012
 Transform:
   m_ObjectHideFlags: 0

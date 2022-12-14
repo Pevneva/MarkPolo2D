@@ -18,7 +18,7 @@ public class Agent : MonoBehaviour
 
     public event Action Died;
 
-    private void Start()
+    private void OnEnable()
     {
         Name = _prefixName + ++_id;
         _agentView = GetComponent<AgentView>();
