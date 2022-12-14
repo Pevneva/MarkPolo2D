@@ -11,8 +11,7 @@ public class CollisionDetector : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Agent agent))
             AgentCollision?.Invoke();
     }
-    
-    
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Border border))

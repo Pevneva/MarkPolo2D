@@ -1046,8 +1046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3821f808613aa489670a0c39c58198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minDelay: 0
-  _maxDelay: 1
+  _minDelay: 2
+  _maxDelay: 8
   _agentTemplate: {fileID: 4268642670242346825, guid: 1bbec5ee8ad1b8541a034e614acf1d29, type: 3}
   _agentDataViewTemplate: {fileID: 8175608118030923656, guid: 4ea84bad6c68c564d81656bbc7567fb6, type: 3}
   _startPosition: {fileID: 1349915971}

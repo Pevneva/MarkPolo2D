@@ -15,7 +15,6 @@ public class AgentMover : MonoBehaviour
         _collisionDetector = GetComponent<CollisionDetector>();
         _currentDirection = GetRandomDirection(BorderType.NULL);
         _collisionDetector.BorderCollision += OnBorderCollision;
-
     }
 
     private void Update()
